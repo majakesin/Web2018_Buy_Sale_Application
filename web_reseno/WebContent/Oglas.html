@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src="./javaScript/lib/jquery-3.3.1.min.js"
+	type="text/javascript">
+	
+</script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+
+<script src="javaScript/oglas.js"></script>
+</head>
+<script>
+	$.get("navbar.html", function(data) {
+		$("#nav").replaceWith(data);
+	});
+</script>
+
+<style type="text/css">
+.row {
+	column-width: 300px;
+	
+	
+	
+}
+.container {
+	align:center;
+}
+.column {
+	margin-left: 50px;
+	margin-bottom:10px;
+}
+body {
+ background-image: url("b.jpg");
+  background-repeat:  repeat;
+ }
+</style>
+<body>
+<div id="nav"></div>
+
+	
+	<div class="container" id="listaKategorijaAd">
+	<h3> List of categories:</h3>
+	<table class="table table-primary" id="tabelaKategorijaAd"> </table>
+	</div>
+	
+
+	
+	
+	<div class="modal" id="izmeniOglasModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" >Add ad</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="izmenjenOglas">
+			
+			<label>Title:</label>
+			
+			<input type="number" id="nazivOU" name="cena" readonly class="form-control" >
+			<label>The price:</label>
+			
+			<input type="number" id="cenaOU" name="cena" class="form-control" >
+			
+			<label>Description:</label>
+			
+			<input type="text" id="opisOU" name="opis" class="form-control" >
+			
+			<label>Expiration time:</label>
+		
+			<input type="date" id="vremeIsticanjaOU" class="form-control">
+			
+			<label>City:</label>
+			
+			<input type="text" id="gradOU"class="form-control">
+		
+			<br>
+			<input type="file" onchange="readImage(this)" name="pic" id="slikaOU" accept="image/*" >
+			<br>
+			<br>
+			<input type="submit" class="form-control btn btn-danger" id="OglasDugmeU" value="Update">
+			
+			
+		</form>
+				 
+					
+				
+				</div>
+	
+	
+	
+	
+				<div class="modal-footer">
+				
+			
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="modal" id="dodajOglas" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" >Add ad</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="noviOglas">
+			<label>Title:</label>
+				
+			<input type="text" id="nazivO" name="naziv" class="form-control"  required>
+			
+			<label>The price:</label>
+			
+			<input type="number" id="cenaO" name="cena" class="form-control" >
+			
+			<label>Description:</label>
+			
+			<input type="text" id="opisO" name="opis" class="form-control" >
+			
+			<label>Expiration time:</label>
+		
+			<input type="date" id="vremeIsticanjaO" class="form-control">
+			
+			<label>City:</label>
+			
+			<input type="text" id="gradO"class="form-control">
+		
+			<br>
+			<input type="file" onchange="readImage(this)" name="pic" id="slikaO" accept="image/*" >
+			<br>
+			<br>
+			<input type="submit" class="form-control btn btn-danger" id="dodajOglasDugme" value="Add">
+			
+			
+		</form>
+				 
+				
+				</div>
+	
+	
+				<div class="modal-footer">
+				
+			
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		
+	
+	
+	
+	
+	
+	<div class="container" id="listaOglasaAd">
+	<h3> List of ads:</h3>
+	<table class="table table-primary" id="tabelaOglasaAd"> </table>
+	</div>
+
+	
+
+
+
+
+
+
+
+</body>
+</html>
