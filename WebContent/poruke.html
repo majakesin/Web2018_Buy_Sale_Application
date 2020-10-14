@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="./javaScript/lib/jquery-3.3.1.min.js" type="text/javascript">	
+</script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" >
+	
+	
+	<script src="javaScript/poruke.js"></script>
+</head>
+<style type="text/css">
+
+#dlogin {
+	align:center;
+	size:40%;
+}
+
+body {
+ background-image: url("b.jpg");
+ background-repeat:  center;
+ }
+ 
+ 
+ #novaPoruka {
+ 	margin-left:500px;
+ 	margin-top:50px;
+ }
+
+#tabelaPoruka{
+	width:500px;
+}	
+#prikazS {
+	width:450px;
+}
+
+</style>
+
+<script>
+$.get("navbar.html", function(data){
+    $("#nav").replaceWith(data);
+});
+</script>
+
+
+<body>
+<div id="nav">
+</div>
+
+		<div class="content" id="novaPoruka">
+		<table id="tabelaPoruka">
+		<tr>
+		<td>
+			<label> Message name:</label> 
+		</td>
+		<td>	
+			<input type ="text" id="nazivPoruke" class="form-control" >  <br>
+		</td>
+		</tr>
+		<tr>
+		<td>	
+			<label>Message content:</label> 
+		</td>
+		<td>
+			<textarea  rows="5" id="sadrzajPoruke" cols="8" class="form-control" ></textarea> <br> <br>
+		</td>
+		
+		</tr>
+		<tr>
+		<td>
+			<label> Message receiver:</label> 
+		</td>
+		<td> <select  id="listaSvihPrimalaca"></select>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2">
+			<button class="btn btn-danger" id="poslataPoruka"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>send</button>
+		
+		</td>
+		</tr>
+		</table>	
+		
+		</div>
+		
+		<div class="container" id="tabelPrimljenihPoruka">
+			<h3> Received messages:</h3>
+			<table class="table table-primary" id="tabelaPrimljene"> </table>
+		</div>
+	
+		<div class="container" id="tabelaPoslatihPoruka">
+				<h3>Sent messages:</h3>
+				<table class="table table-primary" id="tabelaPoslate"> </table>
+		
+		</div>
+
+
+
+
+<div class="modal" id="prikazPorukePoslate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table id="prikazS">
+      <tr>
+      <td>
+        <label>Sent to:</label> <br>
+        </td>
+        <td>
+        
+        <input type="text" readonly  class="form-control" id="primalacPoslata"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message title:</label>
+        </td>
+        <td>
+        <input type="text" class="form-control" readonly id="naslovPoslata"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message content:</label>
+        </td>
+        <td>
+        
+        <textarea  rows="6" class="form-control col-xs-12" id="sadrzajPoslata" readonly></textarea>
+        </td>
+        </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+	
+	
+<div class="modal" id="prikazPorukePrimljene" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table id="prikazS">
+      <tr>
+      <td>
+        <label>Sent by:</label> <br>
+        </td>
+        <td>
+        
+        <input type="text" readonly  class="form-control" id="primalacPrimljena"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message title:</label>
+        </td>
+        <td>
+        <input type="text" class="form-control" readonly id="naslovPrimljena"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message content:</label>
+        </td>
+        <td>
+        
+        <textarea  rows="6" class="form-control col-xs-12" id="sadrzajPrimljena" readonly></textarea>
+        </td>
+        </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal"  id="odgovoriNaPoruku"><i class="fa fa-reply" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+		
+<div class="modal" id="odgovoriNaPorukuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table id="prikazS">
+      <tr>
+      <td>
+        <label>Sent to:</label> <br>
+        </td>
+        <td>
+        
+        <input type="text" readonly  class="form-control" id="primalacOdgovor"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message title:</label>
+        </td>
+        <td>
+        <input type="text" class="form-control"  id="naslovOdgovor"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message content:</label>
+        </td>
+        <td>
+        
+        <textarea  rows="6" class="form-control col-xs-12" id="sadrzajOdgovor" ></textarea>
+        </td>
+        </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" id="SendPoruka"><i class="fa fa-reply" aria-hidden="true"></i>Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="izmeniPorukuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <table id="prikazS">
+      <tr>
+      <td>
+        <label>Sent to:</label> <br>
+        </td>
+        <td>
+        
+        <input type="text" readonly  class="form-control" id="primalacIzmeni"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message title:</label>
+        </td>
+        <td>
+        <input type="text" class="form-control"  id="naslovIzmeni"> <br>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <label>Message content:</label>
+        </td>
+        <td>
+        
+        <textarea  rows="6" class="form-control col-xs-12" id="sadrzajIzmeni" ></textarea>
+        </td>
+        </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" id="UpdatePoruka"><i class="fa fa-reply" aria-hidden="true"></i>Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+</body>
+</html>

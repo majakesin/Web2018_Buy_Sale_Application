@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="./javaScript/lib/jquery-3.3.1.min.js" type="text/javascript">	
+</script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" >
+	
+	<script src="javaScript/login.js"></script>
+	
+</head>
+<style type="text/css">
+
+#dlogin {
+	align:center;
+	size:40%;
+	margin-left: 550px;
+	margin-top: 100px;
+}
+
+body {
+ background-image: url("b.jpg");
+ background-repeat:  center;
+ }
+ 
+ .row{
+ 	column-width: 300px;
+ 
+ }
+
+</style>
+<script>
+$.get("navbar.html", function(data){
+    $("#nav").replaceWith(data);
+});
+</script>
+
+<body>
+<div id="nav">
+
+</div>
+	
+	<div class="container" id="dlogin">
+	<form id="login">
+						<div class="row">
+						<div class="form-group">
+						<label> User name: </label>
+						<input type="text" id="username"   name="username" class="form-control" required>
+						<label>Password:</label>
+						<input type="password" id="password"  name="password" class="form-control" required>
+						<br>		
+						<input type="submit" class="form-control btn btn-danger" id="login" value="LogIn">
+						<br>
+						<br>
+						<a href="signup.html">Sign Up</a>
+						</div>
+						
+						</div>
+					</form>
+				</div>
+</body>
+</html>

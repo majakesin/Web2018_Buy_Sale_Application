@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src="./javaScript/lib/jquery-3.3.1.min.js" type="text/javascript">	
+</script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" >
+	
+	<script src="javaScript/login.js"></script>
+<script>
+$.get("navbar.html", function(data){
+    $("#nav").replaceWith(data);
+});
+
+
+</script>
+
+
+
+<style type="text/css">
+.row {
+	column-width: 300px;
+	
+	
+}
+.column {
+	margin-left: 50px;
+	margin-bottom:10px;
+}
+
+#Dsignup {
+	align:center;
+	margin-left:400px;
+	margin-top:100px;
+}
+
+body {
+ background-image: url("b.jpg");
+  background-repeat:  repeat;
+ }
+</style>
+
+</head>
+
+<body>
+
+<div id="nav">
+
+</div>
+
+<div class="container" id="Dsignup">
+	<form id="signup">
+					<div class="row">
+					<div class="column">
+						
+						<label>* Name: </label>
+						<input type="text" id="name" name="name" class="form-control" required>
+						<label>* Surname:</label>
+						<input type="text" id="surname" name="surname" class="form-control" required>
+						<label>City:</label>
+						<input type="text" id="citySignUp" name="city" class="form-control">
+						<br>
+						<label>Role:</label>
+						
+						<select name="role" id="role" name="role">
+							<option value="customer">customer</option>
+							<option value="salesman">salesman</option>
+							
+						</select>
+						
+						</div>
+						
+					
+						<div class="column">
+						<label>Mobile phone:</label>
+						<input type="text"  name="mobilePhone" id="mobilePhone" class="form-control">
+						<label>* Email:</label>
+						<input type="text" id="email" name="email" class="form-control" placeholder="example@gmail.com" required>
+						
+						<label>* User name:</label>
+						<input type="text" id="uname" name="uname" class="form-control" required>
+						<label>* Password:</label>
+						<input type="password" id="passwordS" name="passwordS" class="form-control" required>
+						<br>
+						
+						<input type="submit"  class="form-control btn btn-danger" id="signUp" value="signUp" name="signUp">
+						</div>
+						
+					
+					
+					</form> 
+			
+	</div>
+
+		
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
